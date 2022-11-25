@@ -13,7 +13,7 @@ import json
 
 app = FastAPI()
 
-file='https://raw.githubusercontent.com/restrepo/OpenAlexGroup/main/data/calificaciones.json'
+file='https://raw.githubusercontent.com/OvierI/OpenAlexGroupclon/main/data/calificaciones.json'
 
 #JSON SCHEME
 #[{"student_id": str,

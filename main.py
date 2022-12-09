@@ -28,21 +28,25 @@ file='https://raw.githubusercontent.com/OvierI/OpenAlexGroupclon/main/data/advis
 #]
 
 @app.get("/")
-def read_item(student_id: str = ""):
+#def read_item(student_id: str = ""):
+def read_item(year: str = ""):
     '''
     http://clustercien.udea.edu.co:8000/?student_id=1113674432
     '''
     #Real time JSON file
     r=requests.get(file)
     db=r.json()
-    new_db=[ d for d in db if str(d.get('publication_year'))==student_id  ]
+    #new_db=[ d for d in db if str(d.get('publication_year'))==student_id  ]
+    new_db=[ d for d in db if str(d.get('publication_year'))==year  ]
+    
     f=open('data/filtered.json','w')
     json.dump(new_db,f)
     f.close()
     #with open(file) as json_file:
     #   db=json.load(json_file)
 
-    if not student_id:
+    #if not student_id:
+    if not year:
         return db
     else:
         return new_db
